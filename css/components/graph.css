@@ -1,0 +1,93 @@
+/* Evaluation Graph Component */
+
+.graph-section {
+    margin: var(--spacing-lg) 0;
+}
+
+.graph-container {
+    position: relative;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+#evaluationGraph {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.graph-tooltip {
+    position: absolute;
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    pointer-events: none;
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    animation: tooltipFade var(--transition-fast) ease-out;
+}
+
+@keyframes tooltipFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tooltip-move {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.tooltip-eval {
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Graph Legend */
+.graph-legend {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-xs);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.legend-color.best {
+    background: var(--color-accent-green);
+}
+
+.legend-color.mistake {
+    background: var(--color-accent-orange);
+}
+
+.legend-color.blunder {
+    background: var(--color-accent-red);
+}
+
+.legend-color.evaluation {
+    background: var(--color-accent-blue);
+}

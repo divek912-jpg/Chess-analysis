@@ -1,0 +1,120 @@
+/* Main Layout */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background: var(--color-bg-primary);
+    gap: 0;
+}
+
+.main-content {
+    flex: 1;
+    padding: var(--spacing-2xl);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-section {
+    width: 100%;
+    max-width: 900px;
+}
+
+.board-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Desktop Layout (>1200px) */
+@media (min-width: 1200px) {
+    .app-container {
+        gap: 0;
+    }
+
+    .sidebar {
+        width: 380px;
+        max-height: 100vh;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Tablet Layout (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: none;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: var(--spacing-xl);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-xl);
+    }
+
+    .moves-list-section {
+        grid-column: 1 / -1;
+    }
+
+    .main-content {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Mobile Layout (<768px) */
+@media (max-width: 767px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: var(--spacing-md);
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .chessboard-container {
+        max-width: 100%;
+    }
+
+    .board-header,
+    .board-footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .board-footer {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+/* Responsive Sidebar Toggle */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: var(--z-modal);
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: flex;
+    }
+}
+
+/* Scrollbar Visibility */
+@media (prefers-reduced-motion: no-preference) {
+    .sidebar::-webkit-scrollbar,
+    .moves-list::-webkit-scrollbar {
+        width: 6px;
+    }
+}
