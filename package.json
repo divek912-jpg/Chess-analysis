@@ -1,0 +1,31 @@
+{
+  "name": "chess-analysis",
+  "version": "1.0.0",
+  "description": "Premium chess game analysis platform with interactive board and detailed move analysis",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'Build script placeholder' && exit 0",
+    "test": "echo 'Test script placeholder' && exit 0",
+    "lint": "echo 'Lint script placeholder' && exit 0"
+  },
+  "keywords": [
+    "chess",
+    "analysis",
+    "game-review",
+    "interactive",
+    "vanilla-js"
+  ],
+  "author": "Chess Analysis Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/divek912-jpg/Chess-analysis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/divek912-jpg/Chess-analysis/issues"
+  },
+  "homepage": "https://divek912-jpg.github.io/Chess-analysis",
+  "devDependencies": {},
+  "dependencies": {}
+}

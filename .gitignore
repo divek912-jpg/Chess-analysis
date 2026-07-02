@@ -1,0 +1,44 @@
+.gitignore
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build
+dist/
+build/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing
+.nyc_output/
+coverage/
+.mocha_cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.AppleDouble
+.LSOverride
+*.log
+
+# Project specific
+saved-games/
+analysis-cache/
+temp/
