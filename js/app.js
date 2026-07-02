@@ -8,6 +8,7 @@ import { ChessEngine } from './engine/engine.js';
 import { SidebarUI } from './ui/sidebar.js';
 import { EvaluationGraph } from './ui/graph.js';
 import { ControlsUI } from './ui/controls.js';
+import { GameLoader } from './pgn-parser.js';
 
 class ChessAnalysisApp {
     constructor() {
@@ -20,6 +21,7 @@ class ChessAnalysisApp {
         this.sidebar = new SidebarUI();
         this.graph = new EvaluationGraph('evaluationGraph');
         this.controls = new ControlsUI(this.gameState);
+        this.gameLoader = new GameLoader(this);
         this.currentTheme = 'dark';
         
         this.init();
@@ -32,6 +34,7 @@ class ChessAnalysisApp {
     }
 
     setupEventListeners() {
+        // Game events
         document.addEventListener('flipBoard', () => this.flipBoard());
         document.addEventListener('previousMove', () => this.previousMove());
         document.addEventListener('nextMove', () => this.nextMove());
@@ -40,11 +43,38 @@ class ChessAnalysisApp {
         document.addEventListener('playGame', () => this.autoPlay());
         document.addEventListener('pauseGame', () => this.stopAutoPlay());
         
+        // PGN Import
+        document.getElementById('pgnInput')?.addEventListener('change', (e) => this.handlePGNImport(e));
+        document.getElementById('importPgnBtn')?.addEventListener('click', () => {
+            document.getElementById('pgnInput').click();
+        });
+        
+        // Sample game
+        document.getElementById('loadSampleBtn')?.addEventListener('click', () => this.loadSampleGame());
+        
         this.graph.onHover((index, evaluation) => this.onGraphHover(index, evaluation));
+    }
+
+    handlePGNImport(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const pgnText = e.target.result;
+            if (this.gameLoader.loadFromPGN(pgnText)) {
+                this.updateDisplay();
+                console.log('PGN loaded successfully');
+            } else {
+                alert('Error loading PGN file. Please check the format.');
+            }
+        };
+        reader.readAsText(file);
     }
 
     renderBoard() {
         this.renderer.render();
+        this.updateDisplay();
     }
 
     flipBoard() {
@@ -52,22 +82,8 @@ class ChessAnalysisApp {
     }
 
     loadSampleGame() {
-        // Load a sample game for demonstration
-        const sampleMoves = [
-            { from: 52, to: 36, piece: 'P', notation: '1.e4' },
-            { from: 12, to: 28, piece: 'p', notation: '1...e5' },
-            { from: 62, to: 45, piece: 'N', notation: '2.Nf3' },
-            { from: 1, to: 18, piece: 'n', notation: '2...Nc6' }
-        ];
-        
-        sampleMoves.forEach(move => {
-            this.gameState.addMove(move);
-        });
-        
-        // Update UI
-        this.sidebar.updateMovesList(this.gameState.moves, -1);
-        this.updateGraph();
-        this.updateSidebar();
+        this.gameLoader.loadSampleGame();
+        this.updateDisplay();
     }
 
     nextMove() {
