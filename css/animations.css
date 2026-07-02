@@ -1,6 +1,5 @@
-/* Animations */
+/* Animation Keyframes */
 
-/* Fade In */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -10,15 +9,10 @@
     }
 }
 
-.fade-in {
-    animation: fadeIn var(--transition-base) var(--easing-ease-in-out);
-}
-
-/* Slide In */
-@keyframes slideInLeft {
+@keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateX(-10px);
     }
     to {
         opacity: 1;
@@ -26,45 +20,10 @@
     }
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slide-in-left {
-    animation: slideInLeft var(--transition-base) var(--easing-ease-in-out);
-}
-
-.slide-in-right {
-    animation: slideInRight var(--transition-base) var(--easing-ease-in-out);
-}
-
-.slide-in-up {
-    animation: slideInUp var(--transition-base) var(--easing-ease-in-out);
-}
-
-/* Scale In */
 @keyframes scaleIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.9);
     }
     to {
         opacity: 1;
@@ -72,138 +31,43 @@
     }
 }
 
-.scale-in {
-    animation: scaleIn var(--transition-base) var(--easing-ease-in-out);
-}
-
-/* Pulse */
 @keyframes pulse {
     0%, 100% {
         opacity: 1;
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.7;
     }
-}
-
-.pulse {
-    animation: pulse 2s var(--easing-ease-in-out) infinite;
-}
-
-/* Hover Glow */
-@keyframes glowPulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(129, 182, 76, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(129, 182, 76, 0);
-    }
-}
-
-.glow {
-    animation: glowPulse 2s infinite;
-}
-
-/* Piece Movement */
-@keyframes piecePop {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.piece-pop {
-    animation: piecePop var(--transition-base) var(--easing-ease-in-out);
-}
-
-/* Bounce */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.bounce {
-    animation: bounce 0.6s var(--easing-ease-in-out) infinite;
-}
-
-/* Shake */
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px);
-    }
-    75% {
-        transform: translateX(5px);
-    }
-}
-
-.shake {
-    animation: shake 0.5s var(--easing-ease-in-out);
-}
-
-/* Loading Spinner */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spin {
-    animation: spin 1s linear infinite;
-}
-
-/* Graph Line Animation */
-@keyframes drawLine {
-    from {
-        stroke-dashoffset: 1000;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-.graph-line {
-    animation: drawLine 1.5s ease-out forwards;
-}
-
-/* Smooth Page Load */
-body.loading::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    animation: shimmer 2s infinite;
-    z-index: 1000;
-    pointer-events: none;
 }
 
 @keyframes shimmer {
     0% {
-        transform: translateX(-100%);
+        background-position: -1000px 0;
     }
     100% {
-        transform: translateX(100%);
+        background-position: 1000px 0;
     }
 }
 
-/* Preference: Reduced Motion */
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+    transition: all var(--transition-base) ease-in-out;
+}
+
+/* Disable animations for reduced motion */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;

@@ -1,128 +1,26 @@
-/* Card Components */
+/* Card Styles */
 
 .card {
     background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all var(--transition-base) var(--easing-ease-in-out);
+    transition: all var(--transition-base);
 }
 
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
     border-color: rgba(255, 255, 255, 0.1);
-}
-
-.card-header {
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.card-title {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin: 0;
-}
-
-.card-subtitle {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    margin: var(--spacing-xs) 0 0 0;
-}
-
-.card-body {
-    flex: 1;
-}
-
-.card-footer {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Stat Card */
-.stat-card {
-    background: var(--color-bg-tertiary);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all var(--transition-base) var(--easing-ease-in-out);
-}
-
-.stat-card:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-secondary);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0 0 var(--spacing-xs) 0;
-}
-
-.stat-value {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-accent-green);
-    margin: 0;
-}
-
-.stat-card.accent-orange .stat-value {
-    color: var(--color-accent-orange);
-}
-
-.stat-card.accent-red .stat-value {
-    color: var(--color-accent-red);
-}
-
-.stat-card.accent-blue .stat-value {
-    color: var(--color-accent-blue);
-}
-
-/* Accuracy Card */
-.accuracy-card {
-    background: var(--color-bg-tertiary);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.accuracy-label {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    font-weight: var(--font-weight-medium);
-    margin: 0 0 var(--spacing-xs) 0;
-}
-
-.accuracy-value {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    margin: 0;
-}
-
-.white-accuracy .accuracy-value {
-    color: var(--color-accent-green);
-}
-
-.black-accuracy .accuracy-value {
-    color: var(--color-accent-blue);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
 }
 
 /* Move Explanation Card */
 .move-explanation {
     background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-xl);
 }
 
 .explanation-header {
@@ -130,26 +28,25 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .explanation-title {
     font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
+    font-weight: 600;
     margin: 0;
 }
 
 .move-badge {
-    background: linear-gradient(135deg, var(--color-accent-green), #6a9c3d);
-    color: var(--color-bg-primary);
+    display: inline-block;
+    background: var(--color-accent-green);
+    color: #000;
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .explanation-content {
@@ -158,67 +55,59 @@
 
 .move-number {
     font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-md) 0;
     color: var(--color-text-primary);
-    margin: 0 0 var(--spacing-sm) 0;
 }
 
 .evaluation {
     font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
     color: var(--color-accent-green);
-    margin: 0 0 var(--spacing-md) 0;
+    margin: 0 0 var(--spacing-lg) 0;
+    font-weight: bold;
 }
 
 .explanation-text {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
 }
 
 .explanation-tips {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    margin: var(--spacing-md) 0;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .tip {
     display: flex;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-md);
-    border-left: 3px solid rgba(255, 255, 255, 0.1);
-}
-
-.tip.positive {
-    border-left-color: var(--color-accent-green);
-}
-
-.tip.negative {
-    border-left-color: var(--color-accent-orange);
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    font-size: var(--font-size-sm);
 }
 
 .tip-icon {
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
     flex-shrink: 0;
 }
 
+.tip.positive .tip-icon { color: var(--color-accent-green); }
+.tip.negative .tip-icon { color: var(--color-accent-orange); }
+
 .tip-text {
-    font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
 }
 
 .difficulty-rating {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
-    margin: var(--spacing-md) 0 0 0;
+    margin: 0;
 }
 
 .explanation-actions {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     flex-wrap: wrap;
 }

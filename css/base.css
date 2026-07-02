@@ -1,73 +1,92 @@
 /* Base Styles */
 
-html {
-    font-size: 16px;
-}
-
 body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
-    font-weight: var(--font-weight-regular);
-    overflow-x: hidden;
+    line-height: 1.6;
+    transition: background-color var(--transition-base), color var(--transition-base);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
-}
-
+/* Typography */
 h1 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
 }
 
 h2 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
 }
 
 h3 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
 }
 
 p {
-    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
 }
 
-small {
-    font-size: var(--font-size-sm);
+code, pre {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: var(--color-bg-secondary);
+    padding: 2px 4px;
+    border-radius: var(--radius-sm);
+}
+
+/* Utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
     color: var(--color-text-secondary);
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+.text-accent {
+    color: var(--color-accent-green);
 }
 
-::-webkit-scrollbar-track {
-    background: var(--color-bg-secondary);
+.flex {
+    display: flex;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--color-text-tertiary);
-    border-radius: var(--radius-md);
+.flex-col {
+    flex-direction: column;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-secondary);
+.gap-md {
+    gap: var(--spacing-md);
 }
 
-/* Selection */
-::selection {
-    background-color: var(--color-accent-green);
-    color: var(--color-bg-primary);
+.gap-lg {
+    gap: var(--spacing-lg);
 }
 
-/* Focus Ring */
-:focus-visible {
-    outline: 2px solid var(--color-accent-green);
-    outline-offset: 2px;
+.hidden {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
